@@ -1,22 +1,3 @@
-## Version 2.0 (stable)
-
-[Welcome to my homepage!](https://WangLibo1995.github.io)
-
-## News 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/transformer-meets-dcfam-a-novel-semantic/semantic-segmentation-on-isprs-potsdam)](https://paperswithcode.com/sota/semantic-segmentation-on-isprs-potsdam?p=transformer-meets-dcfam-a-novel-semantic)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/transformer-meets-dcfam-a-novel-semantic/semantic-segmentation-on-isprs-vaihingen)](https://paperswithcode.com/sota/semantic-segmentation-on-isprs-vaihingen?p=transformer-meets-dcfam-a-novel-semantic)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/efficient-hybrid-transformer-learning-global/semantic-segmentation-on-uavid)](https://paperswithcode.com/sota/semantic-segmentation-on-uavid?p=efficient-hybrid-transformer-learning-global)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/efficient-hybrid-transformer-learning-global/semantic-segmentation-on-loveda)](https://paperswithcode.com/sota/semantic-segmentation-on-loveda?p=efficient-hybrid-transformer-learning-global)
-
-- The code of [PyramidMamba](./geoseg/models/PyramidMamba.py) is released.
-- I have updated this repo to pytorch 2.0 and pytorch-lightning 2.0, support multi-gpu training, etc. 
-- Pretrained Weights of backbones can be access from [Google Drive](https://drive.google.com/drive/folders/1ELpFKONJZbXmwB5WCXG7w42eHtrXzyPn?usp=sharing)
-- [UNetFormer](https://www.sciencedirect.com/science/article/pii/S0924271622001654) (accepted by ISPRS, [PDF](https://www.researchgate.net/profile/Libo-Wang-17/publication/361736439_UNetFormer_A_UNet-like_transformer_for_efficient_semantic_segmentation_of_remote_sensing_urban_scene_imagery/links/62c2a1ed1cbf3a1d12ac1c87/UNetFormer-A-UNet-like-transformer-for-efficient-semantic-segmentation-of-remote-sensing-urban-scene-imagery.pdf)) and **UAVid dataset** are supported.
-- ISPRS Vaihingen and Potsdam datasets are supported. Since private sharing is not allowed, you need to download the datasets from the official website and split them by **Folder Structure**.
-- More networks are updated and the link of pretrained weights is provided.
-- **config/loveda/dcswin.py** provides a detailed explain about **config** setting.
-- Inference on huge RS images are supported (inference_huge_image.py).
-
 ## Introduction
 
 **GeoSeg** is an open-source  semantic segmentation toolbox based on PyTorch, [pytorch lightning](https://www.pytorchlightning.ai/) and [timm](https://github.com/rwightman/pytorch-image-models), 
@@ -44,23 +25,7 @@ which mainly focuses on developing advanced Vision Transformers for remote sensi
 - Multi-scale Training and Testing
 - Inference on Huge Remote Sensing Images
 
-## Supported Networks
 
-- Mamba
-
-  - [PyramidMamba](https://arxiv.org/abs/2406.10828)
-
-- Vision Transformer
-
-  - [UNetFormer](https://authors.elsevier.com/a/1fIji3I9x1j9Fs) 
-  - [DC-Swin](https://ieeexplore.ieee.org/abstract/document/9681903)
-  - [BANet](https://www.mdpi.com/2072-4292/13/16/3065)
-  
-- CNN
- 
-  - [MANet](https://ieeexplore.ieee.org/abstract/document/9487010) 
-  - [ABCNet](https://www.sciencedirect.com/science/article/pii/S0924271621002379)
-  - [A2FPN](https://www.tandfonline.com/doi/full/10.1080/01431161.2022.2030071)
   
 ## Folder Structure
 
@@ -283,33 +248,9 @@ python GeoSeg/inference_huge_image.py \
 -t 'lr' -ph 512 -pw 512 -b 2 -d "pv"
 ```
 
-<div>
-<img src="vai.png" width="30%"/>
-<img src="pot.png" width="35.5%"/>
-</div>
 
-## Reproduction Results
-|    Method     |  Dataset  |  F1   |  OA   |  mIoU |
-|:-------------:|:---------:|:-----:|:-----:|------:|
-|  UNetFormer   |   UAVid   |   -   |   -   | 67.63 |
-|  UNetFormer   | Vaihingen | 90.30 | 91.10 | 82.54 |
-|  UNetFormer   |  Potsdam  | 92.64 | 91.19 | 86.52 |
-|  UNetFormer   |  LoveDA   |   -   |   -   | 52.97 |
-| FT-UNetFormer | Vaihingen | 91.17 | 91.74 | 83.98 |
-| FT-UNetFormer |  Potsdam  | 93.22 | 91.87 | 87.50 |
-
-Due to some random operations in the training stage, reproduced results (run once) are slightly different from the reported in paper.
 
 ## Citation
-
-If you find this project useful in your research, please consider citing：
-
-- [UNetFormer: A UNet-like transformer for efficient semantic segmentation of remote sensing urban scene imagery](https://authors.elsevier.com/a/1fIji3I9x1j9Fs)
-- [A Novel Transformer Based Semantic Segmentation Scheme for Fine-Resolution Remote Sensing Images](https://ieeexplore.ieee.org/abstract/document/9681903) 
-- [Transformer Meets Convolution: A Bilateral Awareness Network for Semantic Segmentation of Very Fine Resolution Urban Scene Images](https://www.mdpi.com/2072-4292/13/16/3065)
-- [ABCNet: Attentive Bilateral Contextual Network for Efficient Semantic Segmentation of Fine-Resolution Remote Sensing Images](https://www.sciencedirect.com/science/article/pii/S0924271621002379)
-- [Multiattention network for semantic segmentation of fine-resolution remote sensing images](https://ieeexplore.ieee.org/abstract/document/9487010)
-- [A2-FPN for semantic segmentation of fine-resolution remotely sensed images](https://www.tandfonline.com/doi/full/10.1080/01431161.2022.2030071)
 
 
 
@@ -323,3 +264,4 @@ and inspiring researchers to develop their own segmentation networks. Many thank
 - [ttach](https://github.com/qubvel/ttach)
 - [catalyst](https://github.com/catalyst-team/catalyst)
 - [mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
+- [GeoSeg](https://github.com/WangLibo1995/GeoSeg)
